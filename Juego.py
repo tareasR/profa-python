@@ -36,7 +36,7 @@ class Juego:
     def get_monsters(self):
         return self.__monsters
 
-    def get_monsterNames(self):
+    def get_monsterNames(self): 
         return self.__monsters.keys()
 
     def get_monsterPower(self):
@@ -52,37 +52,45 @@ class Juego:
         self.__player.estadisticas()
 
     def crearPlayer(self, n, c):
+        print(chr(27)+"[37;44m")
         if c == "1":
             self.__player = Arquero(n)
-            print()
             print(self.__player.nombreX,'aquí tienes tus estadísticas iniciales:')
             print(self.__player.estadisticas())
         if c == "2":
             self.__player = Asesino(n)
-            print()
             print(self.__player.nombreX,'aquí tienes tus estadísticas iniciales:')
             print(self.__player.estadisticas())
         if c == "3":
             self.__player = Mago(n)
-            print()
             print(self.__player.nombreX,'aquí tienes tus estadísticas iniciales:')
-            print(self.__player.estadisticas())
+            prin(self.__player.estadisticas())
+        print(chr(27)+"[0;30;0m")
+
 
     def validarEnergia(self):
         e = self.__player.get_energia()
         if e <= 2:
+            print(chr(27)+"[37;41m")
             print('Estas a punto de morir, tu energia es:', e)
+            print(chr(27)+"[0;30;0m")
         if e <1:
+            print(chr(27)+"[37;41m")
             print('estás muerto!')
+            print(chr(27)+"[0;30;0m")
             sys.exit() 
 
     def validarVida(self):
         v = self.__player.get_vida()
         ### print ( v )
         if v <= 2:
+            print(chr(27)+"[37;41m")
             print('Estas a punto de morir, tu vida es:', v)
+            print(chr(27)+"[0;30;0m")
         if v < 1:
+            print(chr(27)+"[37;41m")
             print('estás muerto!')
+            print(chr(27)+"[0;30;0m")
             sys.exit() 
 
     def downPowerMonster(self, monstruo):
@@ -90,8 +98,9 @@ class Juego:
         # y números aleatorios generados
         self.__monsters[monstruo] = random.randint (1, self.__player.get_resistencia())
         # cuando el power del monstruo acabe lo vencemos, si no nos quedamos sin vida
-        ### print ('pw:', self.__monsters[monstruo])
-        print ('pw:', self.__monsters[monstruo], 'vd:', self.__player.get_vida())
+        ### print ('pw: ', self.__monsters[monstruo])
+        #print ('pw:', self.__monsters[monstruo], 'vd:', self.__player.get_vida())
+        print ('pw: {:3d} - vd: {:3d}'. format(self.__monsters[monstruo], (self.__player.get_vida())))
         if self.__monsters[monstruo] <= 0:
             print ('Bien, venciste')
             return None
@@ -106,7 +115,8 @@ if __name__ == '__main__':
     print (nombrePy,'¿Escoge el número de tu clase?')
     print ('(1) Arquero  (2) Asesino  (3) Mago')
     clasePy = input()
-    print('ok', nombrePy, 'tu clase es:', c[int(clasePy)-1])
+    print('ok', chr(27)+"[1;33m"+nombrePy, 'tu clase es:', c[int(clasePy)-1])
+    #print(chr(27)+"[0;30;0m")
 
     # inicializamos el juego
     jj = Juego()

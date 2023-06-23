@@ -14,11 +14,16 @@ class Arquero(Jugador, Energia):
         print ('Clase', type(self) ,self.nombreX)
 
     def estadisticas(self):
-        print('velocidad:', self.velocidad)
-        print('resistencia:', self.resistencia)
-        print('ataque:', self.ataque)
-        print('vida:',super().get_vida())
-        print('energia:',self.get_energia())
+        # print('velocidad:', self.velocidad)
+        # print('resistencia:', self.resistencia)
+        # print('ataque:', self.ataque)
+        # print('vida:',super().get_vida())
+        # print('energia:',self.get_energia())
+        print('velocidad: {:3d}'.format(self.velocidad))
+        print('resistencia: {:3d}'.format(self.resistencia))
+        print('ataque: {:3d}'.format(self.ataque))
+        print('vida: {:3d}'.format(super().get_vida()))
+        print('energia: {:3d}'.format(self.get_energia()))
 
     def atacar(self):
         super().set_energia()
