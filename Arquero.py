@@ -13,7 +13,7 @@ class Arquero(Jugador, Energia):
     def clase(self):
         print ('Clase', type(self) ,self.nombreX)
 
-    def estadistica(self):
+    def estadisticas(self):
         print('velocidad:', self.velocidad)
         print('resistencia:', self.resistencia)
         print('ataque:', self.ataque)

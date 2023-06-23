@@ -2,7 +2,7 @@
 from Jugador import Jugador
 
 class Assasin(Jugador):
-    Super(self
+    super(self)
     def __init__(self, nombre, arma, velocidad, resistencia, ataque):
         self.__nombreA = nombre
         self.__armaA = arma
