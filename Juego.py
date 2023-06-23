@@ -3,7 +3,7 @@
 
 from Arquero import Arquero
 from Mago import Mago
-# from Asesino import Assasin
+from Asesino import Assasin
 import random
 import sys
 
@@ -58,7 +58,7 @@ class Juego:
             print(self.__player.nombreX,'aquí tienes tus estadísticas iniciales:')
             print(self.__player.estadisticas())
         if c == "2":
-            self.__player = Asesino(n)
+            self.__player = Assasin(n)
             print(self.__player.nombreX,'aquí tienes tus estadísticas iniciales:')
             print(self.__player.estadisticas())
         if c == "3":
