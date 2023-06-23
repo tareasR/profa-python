@@ -4,6 +4,7 @@ from Arquero import Arquero
 from Mago import Mago
 # from Asesino import Assasin
 import random
+
 class Juego:
     def __init__(self):
         self.__monster = {
@@ -30,46 +31,52 @@ class Juego:
         }
         self.__player = None
 
-    def get_monsterName(self):
-        return __monster.values()
+    def get_monsters(self):
+        return self.__monster
+
+    def get_monsterNames(self):
+        return self.__monster.keys()
 
     def get_monsterPower(self):
-        return __monster.values()
+        return self.__monster.values()
 
-    def get_player():
-        return __player
+    def get_player(self):
+        return self.__player
 
-    def crearPlayer(n, c):
+    def crearPlayer(self, n, c):
         if c == "1":
-            __player = Arquero(n)
+            self.__player = Arquero(n)
             print()
-            print(__player.nombreX,'aquí tienes tus estadísticas iniciales:')
-            print(__player.estadisticas())
+            print(self.__player.nombreX,'aquí tienes tus estadísticas iniciales:')
+            print(self.__player.estadisticas())
         if c == "2":
-            __player = Asesino(n)
+            self.__player = Asesino(n)
             print()
-            print(__player.nombreX,'aquí tienes tus estadísticas iniciales:')
-            print(__player.estadisticas())
+            print(self.__player.nombreX,'aquí tienes tus estadísticas iniciales:')
+            print(self.__player.estadisticas())
         if c == "3":
-            __player = Mago(n)
+            self.__player = Mago(n)
             print()
-            print(__player.nombreX,'aquí tienes tus estadísticas iniciales:')
-            print(__player.estadisticas())
+            print(self.__player.nombreX,'aquí tienes tus estadísticas iniciales:')
+            print(self.__player.estadisticas())
 
 
-    if __name__ == '__main__':
-        c = ['Arquero', 'Asesino', 'Mago']
-        print ('¿cuál es tu nombre?')
-        nombrePy = input()
-        print (nombrePy,'¿Escoge el número de tu clase?')
-        print ('(1) Arquero  (2) Asesino  (3) Mago')
-        clasePy = input()
-        print('ok', nombrePy, 'tu clase es:', c[int(clasePy)-1])
-        crearPlayer(nombrePy, clasePy)
-        
-        
-        print (__player)
-        #p1 = Arquero(nombrePy)
-        #p1.estadisticas()
+if __name__ == '__main__':
+    jj = Juego()
+    # jj.crearPlayer('rafa','1')
+    # print (jj.get_player())
 
-        #print ( get_monster(self) )
+    c = ['Arquero', 'Asesino', 'Mago']
+    print ('¿cuál es tu nombre?')
+    nombrePy = input()
+    print (nombrePy,'¿Escoge el número de tu clase?')
+    print ('(1) Arquero  (2) Asesino  (3) Mago')
+    clasePy = input()
+    print('ok', nombrePy, 'tu clase es:', c[int(clasePy)-1])
+
+    jj.crearPlayer(nombrePy, clasePy)
+    #print (type(jj.get_player()).__name__)
+    for monstruo in jj.get_monsters():
+        print (monstruo)
+
+
