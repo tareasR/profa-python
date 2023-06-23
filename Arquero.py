@@ -22,3 +22,9 @@ class Arquero(Jugador, Energia):
 
     def atacar(self):
         super().set_energia()
+
+    def defender(self):
+        super().set_vida()
+
+    def get_resistencia(self):
+        return self.resistencia
